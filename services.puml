@@ -1,0 +1,59 @@
+@startuml
+
+interface AparelhoTelefonico {
+    + ligarParaContato(nome: String): void
+    + atender(): void
+    + iniciarCorreioDeVoz(): void
+    + adicionarContato(nome: String, numero: Long): void
+    + selecionarContato(contato: String): void
+}
+
+class IphoneCallService {
+    - CONTATOS: Map<Contato, NumeroTelefonico>
+    - iphone: Iphone
+    + IphoneCallService(iphone: Iphone)
+    + ligarParaContato(nome: String): void
+    + atender(): void
+    + iniciarCorreioDeVoz(): void
+    + adicionarContato(nome: String, numero: Long): void
+    + selecionarContato(nome: String): void
+}
+
+IphoneCallService --|> AparelhoTelefonico
+
+interface ReprodutorMusical {
+    + tocar(musica: String): void
+    + pausar(musica: String): void
+    + selecionarMusica(musica: String): void
+    + adicionarMusica(artista: String, musica: String): void
+    + mostrarPlaylist(): void
+}
+
+class ItunesService {
+    - BANDAS: List<Banda>
+    - iphone: Iphone
+    + ItunesService(iphone: Iphone)
+    + tocar(musica: String): void
+    + pausar(musica: String): void
+    + selecionarMusica(musica: String): void
+    + adicionarMusica(artista: String, musica: String): void
+    + mostrarPlaylist(): void
+}
+
+ItunesService --|> ReprodutorMusical
+
+interface NavegadorDeInternet {
+    + exibirPagina(pagina: String): void
+    + adicionarNovaAba(): void
+    + atualizarPagina(): void
+}
+
+class SafariWebServices {
+    + exibirPagina(pagina: String): void
+    + adicionarNovaAba(): void
+    + atualizarPagina(): void
+}
+
+SafariWebServices --|> NavegadorDeInternet
+
+@enduml

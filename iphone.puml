@@ -1,0 +1,34 @@
+@startuml
+
+interface Iphone {
+    + getNome(): String
+    + getModelo(): String
+    + getSistemaOperacional(): String
+    + getProcessador(): String
+    + getFotoResolucao(): String
+}
+Iphone14 --|> Iphone
+
+
+
+class Iphone14 {
+    - nome: String
+    - modelo: String
+    - sistemaOperacional: String
+    - processador: String
+    - fotoResolucao: String
+
+    + getInstance(nome: String, modelo: String, sistemaOperacional: String, processador: String, fotoResolucao: String): Iphone14
+    + getNome(): String
+    + getModelo(): String
+    + getSistemaOperacional(): String
+    + getProcessador(): String
+    + getFotoResolucao(): String
+    + equals(o: Object): boolean
+    + hashCode(): int
+    + toString(): String
+}
+
+
+@enduml
+

@@ -1,7 +1,7 @@
 package com.balsani.domain.services;
 
 import com.balsani.domain.entities.Iphone;
-import com.balsani.domain.entities.Iphone14;
+
 import com.balsani.domain.util.Banda;
 
 import java.util.*;
@@ -18,7 +18,7 @@ public class ItunesService implements  RepodutorMusical{
 
 
     @Override
-    public void tocar( String musica) {
+    public void tocar(String musica) {
         if (!BANDAS.contains(musica)) {
             throw new BusinessException("Música não adicionada a playlist");
         }
@@ -34,7 +34,9 @@ public class ItunesService implements  RepodutorMusical{
 
     @Override
     public void selecionarMusica(String musica) {
-        BANDAS.stream().filter(m -> m.getNomeDaMusica().equals(musica)).forEach(m -> System.out.println(m + "Selecionada"));
+        BANDAS.stream()
+                .filter(m -> m.getNomeDaMusica().equals(musica))
+                .forEach(m -> System.out.println(m + "Selecionada"));
 
 
     }

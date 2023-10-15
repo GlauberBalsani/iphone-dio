@@ -1,0 +1,43 @@
+@startuml
+
+class IphoneCallServiceBaseTest {
+    - iphoneCallService: IphoneCallService
+    - iphone: Iphone
+
+    + setUp(): void
+}
+
+IphoneCallServiceBaseTest --|> ItunesServiceTest
+IphoneCallServiceBaseTest --> IphoneCallService
+
+
+class IphoneMusicBaseTest {
+    - itunesService: ItunesService
+    - iphone: Iphone
+
+    + setUp(): void
+}
+
+IphoneMusicBaseTest --|> ItunesServiceTest
+IphoneMusicBaseTest --> ItunesService
+
+class ItunesServiceTest {
+    + tocar(): void
+    + pausar(): void
+    + selecionarMusica(): void
+    + adicionarMusica(): void
+    + mostrarPlaylist(): void
+}
+
+ItunesServiceTest --|> IphoneMusicBaseTest
+
+class IphoneCallServiceTest {
+    + ligarParaContato(): void
+    + atender(): void
+    + iniciarCorreioDeVoz(): void
+    + adicionarContato(): void
+    + selecionarContato(): void
+}
+
+IphoneCallServiceTest --|> IphoneMusicBaseTest
+@enduml
